@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Tugas</title>
+</head>
+<body>
+    <h2>Filter Tugas</h2>
+    <select id="filter">
+        <option value="">Semua</option>
+        <option value="Kuliah">Kuliah</option>
+        <option value="Organisasi">Organisasi</option>
+        <option value="Pribadi">Pribadi</option>
+    </select>
+    <button onclick="filterTasks()">Filter</button>
+
+    <h2>Daftar Tugas</h2>
+    <ul id="task-list"></ul>
+
+    <script src="script.js"></script>
+</body>
+</html>
