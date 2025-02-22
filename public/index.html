@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manajemen Tugas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manajemen Tugas Mahasiswa</title>
+  <!-- Tambahkan CSS jika diperlukan -->
 </head>
 <body>
-    <h2>Filter Tugas</h2>
-    <select id="filter">
-        <option value="">Semua</option>
-        <option value="Kuliah">Kuliah</option>
-        <option value="Organisasi">Organisasi</option>
-        <option value="Pribadi">Pribadi</option>
-    </select>
-    <button onclick="filterTasks()">Filter</button>
+  <h2>Tambah Tugas Baru</h2>
+  <!-- Form untuk menambahkan tugas -->
+  <input type="text" id="title" placeholder="Judul Tugas">
+  <input type="text" id="category" placeholder="Kategori">
+  <input type="date" id="deadline">
+  <button onclick="addTask()">Tambah Tugas</button>
 
-    <h2>Daftar Tugas</h2>
-    <ul id="task-list"></ul>
+  <h2>Filter Tugas</h2>
+  <!-- Dropdown untuk memilih kategori tugas -->
+  <select id="filter" onchange="filterTasks()">
+    <option value="">Semua</option>
+    <option value="Kuliah">Kuliah</option>
+    <option value="Organisasi">Organisasi</option>
+    <option value="Pribadi">Pribadi</option>
+  </select>
+  <!-- Tombol untuk menerapkan filter -->
+  <button onclick="filterTasks()">Filter</button>
 
-    <script src="script.js"></script>
+  <h2>Daftar Tugas</h2>
+  <!-- Daftar tugas akan ditampilkan di sini -->
+  <ul id="task-list"></ul>
+
+  <!-- Script JavaScript untuk mengambil data tugas menggunakan AJAX -->
+  <script src="script.js"></script>
 </body>
 </html>
