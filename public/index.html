@@ -2,34 +2,100 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <title>Manajemen Tugas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manajemen Tugas Mahasiswa</title>
-  <!-- Tambahkan CSS jika diperlukan -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <h2>Tambah Tugas Baru</h2>
-  <!-- Form untuk menambahkan tugas -->
-  <input type="text" id="title" placeholder="Judul Tugas">
-  <input type="text" id="category" placeholder="Kategori">
-  <input type="date" id="deadline">
-  <button onclick="addTask()">Tambah Tugas</button>
 
-  <h2>Filter Tugas</h2>
-  <!-- Dropdown untuk memilih kategori tugas -->
-  <select id="filter" onchange="filterTasks()">
-    <option value="">Semua</option>
-    <option value="Kuliah">Kuliah</option>
-    <option value="Organisasi">Organisasi</option>
-    <option value="Pribadi">Pribadi</option>
-  </select>
-  <!-- Tombol untuk menerapkan filter -->
-  <button onclick="filterTasks()">Filter</button>
+  <!-- Register Section -->
+  <div id="register-container" class="container">
+    <h2>Register</h2>
+    <input type="text" id="reg-username" placeholder="Username">
+    <input type="password" id="reg-password" placeholder="Password">
+    <button onclick="registerUser()">Register</button>
+    <p>Sudah punya akun? <a onclick="showLogin()">Login</a></p>
+  </div>
 
-  <h2>Daftar Tugas</h2>
-  <!-- Daftar tugas akan ditampilkan di sini -->
-  <ul id="task-list"></ul>
+  <!-- Login Section -->
+  <div id="login-container" class="container hidden">
+    <h2>Login</h2>
+    <input type="text" id="login-username" placeholder="Username">
+    <input type="password" id="login-password" placeholder="Password">
+    <button onclick="loginUser()">Login</button>
+    <p>Belum punya akun? <a onclick="showRegister()">Register</a></p>
+  </div>
 
-  <!-- Script JavaScript untuk mengambil data tugas menggunakan AJAX -->
+  <!-- Task Management -->
+  <div id="task-container" class="hidden">
+    <nav class="navbar">
+      <h3><i class="fa-solid fa-tasks"></i> Manajemen Tugas</h2>
+      <right>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </right>
+    </nav>
+
+    <div class="container">
+      <h2>Tambah Tugas</h2>
+      <div class="judul">
+      <input type="text" id="task-title" placeholder="Judul Tugas">
+    </div>
+      <select id="task-category">
+        <option value="" disabled selected>Pilih Kategori</option>
+        <option value="Kuliah">Kuliah</option>
+        <option value="Organisasi">Organisasi</option>
+        <option value="Pribadi">Pribadi</option>
+      </select>
+      <div class="date">
+      <input type="date" id="task-deadline">
+    </div>
+      <button onclick="addTask()"><i class="fa-solid fa-plus"></i> Tambah</button>
+
+      <h2>Daftar Tugas</h2>
+      <select id="filter" onchange="filterTasks()">
+        <option value="">Semua</option>
+        <option value="Kuliah">Kuliah</option>
+        <option value="Organisasi">Organisasi</option>
+        <option value="Pribadi">Pribadi</option>
+      </select>
+
+      <table id="task-table">
+        <thead>
+          <tr>
+            <th>Judul</th>
+            <th>Kategori</th>
+            <th>Deadline</th>
+            <th>Status</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="task-list"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal Edit Tugas -->
+  <div id="editModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Edit Tugas</h3>
+      <input type="text" id="edit-title" placeholder="Judul Tugas">
+      <select id="edit-category">
+        <option value="Kuliah">Kuliah</option>
+        <option value="Organisasi">Organisasi</option>
+        <option value="Pribadi">Pribadi</option>
+      </select>
+      <input type="date" id="edit-deadline">
+      <select id="edit-status">
+        <option value="Belum Selesai">Belum Selesai</option>
+        <option value="Selesai">Selesai</option>
+      </select>
+      <button onclick="updateTask()">Simpan</button>
+      <button onclick="closeModal()">Batal</button>
+      
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -18,8 +18,8 @@ wss.on("connection", (ws) => {
 });
 
 // Gunakan rute API
-app.use("/api/auth", authRoutes);// Rute untuk register & login
-app.use("/api", taskRoutes);// Rute untuk CRUD tugas
+app.use("/auth", authRoutes);// Rute untuk register & login
+app.use("/", taskRoutes);// Rute untuk CRUD tugas
 
 // Jalankan server
 app.listen(port, () => {
