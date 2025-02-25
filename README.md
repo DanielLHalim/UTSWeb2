@@ -1,3 +1,5 @@
+Link Github : https://github.com/DanielLHalim/UTSWeb2.git
+
 Cara mengatur database
 
 1. Install mysql2 pada terminal di file proyek, dengan npm install mysql2
