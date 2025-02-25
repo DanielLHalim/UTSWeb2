@@ -1,4 +1,3 @@
-//Middleware Validasi Data
 function validateTask(req, res, next) {
     const { title, category, deadline, status } = req.body;
 

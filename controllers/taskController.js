@@ -1,13 +1,9 @@
-// controllers/taskController.js
-
 const Task = require("../models/taskModel"); // Import model task untuk akses database
 
 const taskController = {
-    // Controller untuk membuat tugas baru
     createTask: async (req, res) => {
-        const { title, category, deadline, status } = req.body; // Ambil data tugas dari request body
+        const { title, category, deadline, status } = req.body;
         try {
-            // Simpan tugas baru ke database
             await Task.create(title, category, deadline, status);
             res.status(201).json({ message: "Tugas berhasil ditambahkan" });
         } catch (err) {
@@ -15,12 +11,10 @@ const taskController = {
         }
     },
 
-    // Controller untuk mengambil semua tugas, dengan opsi filter berdasarkan kategori
     getTasks: async (req, res) => {
-        const { category } = req.query; // Ambil query parameter kategori jika ada
+        const { category } = req.query;
         try {
-            let tasks = await Task.findAll(); // Ambil semua tugas dari database
-            // Jika filter kategori diterapkan, lakukan penyaringan
+            let tasks = await Task.findAll();
             if (category) {
                 tasks = tasks.filter(task => task.category === category);
             }
@@ -30,10 +24,9 @@ const taskController = {
         }
     },
 
-    // Controller untuk mengupdate tugas berdasarkan ID
     updateTask: async (req, res) => {
-        const { id } = req.params; // Ambil ID tugas dari parameter URL
-        const { title, category, deadline, status } = req.body; // Ambil data update dari request body
+        const { id } = req.params;
+        const { title, category, deadline, status } = req.body;
         try {
             const [result] = await Task.update(id, title, category, deadline, status);
             if (result.affectedRows === 0) {
@@ -45,9 +38,8 @@ const taskController = {
         }
     },
 
-    // Controller untuk menghapus tugas berdasarkan ID
     deleteTask: async (req, res) => {
-        const { id } = req.params; // Ambil ID tugas dari parameter URL
+        const { id } = req.params;
         try {
             const [result] = await Task.delete(id);
             if (result.affectedRows === 0) {
@@ -60,4 +52,4 @@ const taskController = {
     }
 };
 
-module.exports = taskController; // Ekspor taskController agar bisa digunakan di rute
+module.exports = taskController; // Ekspor

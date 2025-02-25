@@ -1,4 +1,3 @@
-//Middleware Autentikasi
 const { verifyToken } = require("../config/auth");
 
 const authMiddleware = (req, res, next) => {

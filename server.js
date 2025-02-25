@@ -1,4 +1,4 @@
-require("dotenv").config();// Load konfigurasi dari file .env
+require("dotenv").config();
 const express = require("express");
 const authRoutes = require("./routes/authRoutes");
 const taskRoutes = require("./routes/taskRoutes");
@@ -18,10 +18,9 @@ wss.on("connection", (ws) => {
 });
 
 // Gunakan rute API
-app.use("/auth", authRoutes);// Rute untuk register & login
-app.use("/", taskRoutes);// Rute untuk CRUD tugas
+app.use("/auth", authRoutes);
+app.use("/", taskRoutes);
 
-// Jalankan server
 app.listen(port, () => {
     console.log(`Server berjalan di http://localhost:${port}`);
 });
