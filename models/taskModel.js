@@ -1,4 +1,4 @@
-//Model Task
+//Model Task connect database
 const db = require("../config/db");
 
 const Task = {

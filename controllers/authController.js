@@ -2,7 +2,7 @@ const User = require("../models/userModel");
 const { generateToken } = require("../config/auth"); 
 const bcrypt = require("bcryptjs"); //enkripsi password
 
-const authController = {
+const authController = { //logika coding
     register: async (req, res) => {
         const { username, password } = req.body; // Ambil
         try {
@@ -15,7 +15,7 @@ const authController = {
             res.status(500).json({ message: "Gagal mendaftar", error: err.message });
         }
     },
-
+//definisikan login
     login: async (req, res) => {
         const { username, password } = req.body; 
         try {
